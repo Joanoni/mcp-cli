@@ -1,0 +1,9 @@
+{
+  "name": "docker",
+  "command": "docker",
+  "description": "Docker CLI for managing containers and images",
+  "commands": [
+    { "name": "docker_ps", "description": "List running Docker containers", "subcommand": "ps" },
+    { "name": "docker_images", "description": "List Docker images", "subcommand": "images" }
+  ]
+}

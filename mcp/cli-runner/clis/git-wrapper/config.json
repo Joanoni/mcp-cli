@@ -1,0 +1,28 @@
+{
+  "name": "git",
+  "command": "./git-wrapper.exe",
+  "description": "Git version control CLI (token-optimized wrapper)",
+  "timeout": 60,
+  "commands": [
+    { "name": "git_status", "description": "Show the working tree status", "subcommand": "status" },
+    { "name": "git_log", "description": "Show commit logs (hashes truncated, limited to 50 commits)", "subcommand": "log" },
+    { "name": "git_diff", "description": "Show changes between commits, working tree, etc.", "subcommand": "diff" },
+    { "name": "git_branch", "description": "List, create, or delete branches", "subcommand": "branch" },
+    { "name": "git_show", "description": "Show various types of objects (commits, tags, etc.)", "subcommand": "show" },
+    { "name": "git_stash", "description": "Stash the changes in a dirty working directory", "subcommand": "stash" },
+    { "name": "git_add", "description": "Add file contents to the index", "subcommand": "add" },
+    { "name": "git_commit", "description": "Record changes to the repository", "subcommand": "commit" },
+    { "name": "git_push", "description": "Update remote refs along with associated objects", "subcommand": "push" },
+    { "name": "git_pull", "description": "Fetch from and integrate with another repository or branch", "subcommand": "pull" },
+    { "name": "git_fetch", "description": "Download objects and refs from another repository", "subcommand": "fetch" },
+    { "name": "git_checkout", "description": "Switch branches or restore working tree files", "subcommand": "checkout" },
+    { "name": "git_merge", "description": "Join two or more development histories together", "subcommand": "merge" },
+    { "name": "git_rebase", "description": "Reapply commits on top of another base tip", "subcommand": "rebase" },
+    { "name": "git_reset", "description": "Reset current HEAD to the specified state", "subcommand": "reset" },
+    { "name": "git_remote", "description": "Manage set of tracked repositories", "subcommand": "remote" },
+    { "name": "git_tag", "description": "Create, list, delete or verify a tag object", "subcommand": "tag" },
+    { "name": "git_clone", "description": "Clone a repository into a new directory", "subcommand": "clone", "timeout": 120 },
+    { "name": "git_init", "description": "Create an empty Git repository or reinitialize an existing one", "subcommand": "init" },
+    { "name": "git_cherry_pick", "description": "Apply the changes introduced by some existing commits", "subcommand": "cherry-pick" }
+  ]
+}
