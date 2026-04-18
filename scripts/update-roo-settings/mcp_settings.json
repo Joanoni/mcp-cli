@@ -1,0 +1,33 @@
+{
+	"mcpServers": {
+		"cli-runner": {
+			"command": "node",
+			"args": ["mcp/cli-runner/dist/index.js"],
+			"cwd": "c:/Projects/mcp-cli",
+			"alwaysAllow": [
+				"docker_ps",
+				"docker_images",
+				"git_status",
+				"git_log",
+				"git_diff",
+				"git_branch",
+				"git_show",
+				"git_stash",
+				"git_add",
+				"git_commit",
+				"git_push",
+				"git_pull",
+				"git_fetch",
+				"git_checkout",
+				"git_merge",
+				"git_rebase",
+				"git_reset",
+				"git_remote",
+				"git_tag",
+				"git_clone",
+				"git_init",
+				"git_cherry_pick"
+			]
+		}
+	}
+}

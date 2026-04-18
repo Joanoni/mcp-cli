@@ -1,0 +1,4 @@
+{
+  "defaultTimeout": 30,
+  "clisDirectory": "./clis"
+}
