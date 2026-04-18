@@ -39,6 +39,13 @@ func Process(subcommand string, output string) string {
 		lines = removeProgressLines(lines)
 		lines = removeConsecutiveBlanks(lines)
 
+	case "commit":
+		lines = filterCommitFileList(lines)
+		lines = removeConsecutiveBlanks(lines)
+
+	case "init":
+		lines = filterInitOutput(lines)
+
 	case "branch":
 		lines = filterRemoteBranches(lines)
 		lines = trimBranchLines(lines)
@@ -275,9 +282,38 @@ func removeProgressLines(lines []string) []string {
 		if percentageLine.MatchString(strings.TrimSpace(line)) && strings.TrimSpace(line) != "" {
 			continue
 		}
+		if strings.HasPrefix(line, "warning:") {
+			continue
+		}
 		result = append(result, line)
 	}
 	return result
+}
+
+// filterCommitFileList removes verbose file-mode lines from git commit output.
+func filterCommitFileList(lines []string) []string {
+	result := []string{}
+	for _, line := range lines {
+		trimmed := strings.TrimLeft(line, " ")
+		if strings.HasPrefix(trimmed, "create mode") ||
+			strings.HasPrefix(trimmed, "delete mode") ||
+			strings.HasPrefix(trimmed, "rename ") ||
+			strings.HasPrefix(trimmed, "mode change") {
+			continue
+		}
+		result = append(result, line)
+	}
+	return result
+}
+
+// filterInitOutput simplifies git init output to a single line.
+func filterInitOutput(lines []string) []string {
+	for _, line := range lines {
+		if strings.HasPrefix(line, "Initialized") {
+			return []string{"Initialized empty Git repository."}
+		}
+	}
+	return lines
 }
 
 // trimBranchLines removes extra leading/trailing whitespace per line.
